@@ -203,7 +203,7 @@
     loader.load(
      './models/FrankieObjects.gltf',
      function (gltf) {
-      gltf.scene.position.set(97, 40, 185);
+      gltf.scene.position.set(93, 40, 185);
       gltf.scene.traverse((child) => {
        if (child.isMesh) {
         const originalMaterial = child.material;
@@ -238,7 +238,7 @@
        
       
       points = new Points(geometry, material);
-      points.position.set(120.5, 42.5, 165); // GLTF 모델과 같은 위치로 맞추기
+      points.position.set(116.4, 42.5, 165); // GLTF 모델과 같은 위치로 맞추기
       points.scale.set(10, 10, 10);
       scene.add(points);
       });
