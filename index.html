@@ -90,12 +90,12 @@
 
       // Sky uniforms 설정
       sky.material.uniforms.turbidity.value = 0.25;
-      sky.material.uniforms.rayleigh.value = 0.744;
+      sky.material.uniforms.rayleigh.value = 0.544;
       sky.material.uniforms.mieCoefficient.value = 0.12;
       sky.material.uniforms.mieDirectionalG.value = 6.99;
 
       // elevation(고도)와 azimuth(방위각)
-      const elevation = 15.0;
+      const elevation = 23.0;
       const azimuth = 200;
 
       // 각도 → 라디안 변환
@@ -107,7 +107,7 @@
       sky.material.uniforms.sunPosition.value.copy(sun);
 
       // 톤 매핑 노출 (exposure)
-      renderer.toneMappingExposure = 0.6093; // 요청 값에 맞춰 조절
+      renderer.toneMappingExposure = 0.5093; // 요청 값에 맞춰 조절
 
       // Water
       const waterGeometry = new PlaneGeometry(10000, 10000);
@@ -225,8 +225,8 @@
         });
        }
       });
-      gltf.scene.scale.set(0.07, 0.07, 0.07); // 스케일도 적절히
-      gltf.scene.rotation.y = 3; 
+      gltf.scene.scale.set(0.05, 0.05, 0.05); // 스케일도 적절히
+      gltf.scene.rotation.y = 3.8; 
       // 콜백 내부에서만 object에 접근 가능
       scene.add(gltf.scene);
 
@@ -238,8 +238,8 @@
        
       
       points = new Points(geometry, material);
-      points.position.set(85.5, 42.5, 154.5); // GLTF 모델과 같은 위치로 맞추기
-      points.scale.set(11, 11, 11);
+      points.position.set(67, 42.5, 167); // GLTF 모델과 같은 위치로 맞추기
+      points.scale.set(18, 18, 18);
       scene.add(points);
       });
 
@@ -338,7 +338,7 @@
       }
      particles.geometry.attributes.position.needsUpdate = true;
      particles.geometry.attributes.scale.needsUpdate = true;
-     count += 0.15;
+     count += 0.1;
      renderer.render(scene, camera);
      composer.render();
     }
