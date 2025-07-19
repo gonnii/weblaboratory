@@ -226,7 +226,7 @@
        }
       });
       gltf.scene.scale.set(0.07, 0.07, 0.07); // 스케일도 적절히
-      gltf.scene.rotation.y = 8.6; 
+      gltf.scene.rotation.y = 3; 
       // 콜백 내부에서만 object에 접근 가능
       scene.add(gltf.scene);
 
@@ -238,8 +238,8 @@
        
       
       points = new Points(geometry, material);
-      points.position.set(103.5, 42.5, 164.5); // GLTF 모델과 같은 위치로 맞추기
-      points.scale.set(10, 10, 10);
+      points.position.set(85.5, 42.5, 154.5); // GLTF 모델과 같은 위치로 맞추기
+      points.scale.set(11, 11, 11);
       scene.add(points);
       });
 
