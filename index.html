@@ -203,7 +203,7 @@
     loader.load(
      './models/FrankieObjects.gltf',
      function (gltf) {
-      gltf.scene.position.set(97, 220, 200);   // 원하는 좌표로 배치
+      gltf.scene.position.set(97, 40, 185);
       gltf.scene.traverse((child) => {
        if (child.isMesh) {
         const originalMaterial = child.material;
@@ -225,38 +225,21 @@
         });
        }
       });
-      gltf.scene.scale.set(0.09, 0.09, 0.09); // 스케일도 적절히
-      gltf.scene.rotation.y = Math.PI; 
+      gltf.scene.scale.set(0.07, 0.07, 0.07); // 스케일도 적절히
+      gltf.scene.rotation.y = 8.6; 
       // 콜백 내부에서만 object에 접근 가능
       scene.add(gltf.scene);
-
-      window.addEventListener('click', (event) => {
-      // 마우스 좌표 정규화
-       mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-       mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-
-      // Raycasting 수행
-      raycaster.setFromCamera(mouse, camera);
-      const intersects = raycaster.intersectObject(gltf.scene, true);
-
-      // 클릭된 오브젝트가 있을 경우 nextpage.html로 이동
-      if (intersects.length > 0) {
-        console.log("GLTF 오브젝트 클릭됨!");
-        window.location.href = 'Laboratory.html'; // 📌 로컬 HTML 파일로 이동
-       }
-      });
-
 
       const xyzLoader = new XYZLoader();
       xyzLoader.load('./models/points.xyz', (geometry) => {
       const material = new PointsMaterial({ color: 0xffffff, size: 0.15, sizeAttenuation: true,
-        depthTest: false, opacity: 0.3, transparent: true });
+        depthTest: false, opacity: 0.8, transparent: true });
         geometry.rotateX(Math.PI / 2);
        
       
       points = new Points(geometry, material);
-      points.position.set(98.8, 223, 160); // GLTF 모델과 같은 위치로 맞추기
-      points.scale.set(20, 20, 20);
+      points.position.set(120.5, 42.5, 165); // GLTF 모델과 같은 위치로 맞추기
+      points.scale.set(10, 10, 10);
       scene.add(points);
       });
 
