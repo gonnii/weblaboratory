@@ -45,7 +45,7 @@
     let composer, bloomPass;
     let points, water = null;
     let particles, count = 0;
-    const SEPARATION = 15, AMOUNTX = 300, AMOUNTY = 300;
+    const SEPARATION = 13, AMOUNTX = 300, AMOUNTY = 300;
 
     function init() {
       // Scene, Camera, Renderer
@@ -203,7 +203,7 @@
     loader.load(
      './models/FrankieObjects.gltf',
      function (gltf) {
-      gltf.scene.position.set(93, 40, 185);
+      gltf.scene.position.set(80, 40, 185);
       gltf.scene.traverse((child) => {
        if (child.isMesh) {
         const originalMaterial = child.material;
@@ -238,7 +238,7 @@
        
       
       points = new Points(geometry, material);
-      points.position.set(116.4, 42.5, 165); // GLTF 모델과 같은 위치로 맞추기
+      points.position.set(103.5, 42.5, 164.5); // GLTF 모델과 같은 위치로 맞추기
       points.scale.set(10, 10, 10);
       scene.add(points);
       });
@@ -330,15 +330,15 @@
       let i = 0, j = 0;
       for (let ix = 0; ix < AMOUNTX; ix++) {
        for (let iy = 0; iy < AMOUNTY; iy++) {
-        positions[i + 1] = (Math.sin((ix + count) * 0.3) * 50) + (Math.sin((iy + count) * 0.5) * 50);
-        scales[j] = (Math.sin((ix + count) * 0.3) + 1) * 20 + (Math.sin((iy + count) * 0.5) + 1) * 20;
+        positions[i + 1] = (Math.sin((ix + count) * 0.3) * 50) + (Math.sin((iy + count) * 0.5) * 20);
+        scales[j] = (Math.sin((ix + count) * 0.3) + 1) * 16 + (Math.sin((iy + count) * 0.5) + 1) * 16;
         i += 3;
         j++;
        }
       }
      particles.geometry.attributes.position.needsUpdate = true;
      particles.geometry.attributes.scale.needsUpdate = true;
-     count += 0.1;
+     count += 0.15;
      renderer.render(scene, camera);
      composer.render();
     }
